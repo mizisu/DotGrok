@@ -43,23 +43,6 @@
                 if (result.Success)
                     WriteOutput(result);
             }
-
-            //var grok = Grok.Create(@"%{DateTime:Time}")
-            //    .AddPattern("DateTime", @"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}")
-            //    .AddPattern("LogLevel", @".{5}")
-            //    .AddPattern("Message", @".")
-            //    .AddConverter("DateTime", s => DateTime.Parse(s))
-            //    .Build();
-
-            //foreach (var item in new string[]
-            //    {
-            //        $"{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff")}",
-            //    })
-            //{
-            //    var r = grok.Match(item);
-            //    Console.WriteLine($"{r.Success}");
-            //    Console.WriteLine($"{string.Join(',', r.Items)}");
-            //}
         }
 
         private IEnumerable<string> InputToLines()
