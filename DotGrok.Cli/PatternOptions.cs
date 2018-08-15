@@ -39,6 +39,7 @@
             Logger.Info("Print all patterns.");
             foreach (var kv in Configuration.Grok.Patterns)
                 Logger.Info(kv.Value.ToString());
+            Logger.Info($"{Configuration.Grok.Patterns.Count} Patterns print");
         }
     }
 }
