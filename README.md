@@ -1,5 +1,5 @@
 # DotGrok
-.NET Grok library
+.NET Parse text with pattern.
 
 ## Usage
 ```csharp
