@@ -35,14 +35,14 @@ namespace DotGrok.Test
                 output.WriteLine($"{item.Name} : {item.Value}");
             }
 
-            Assert.Equal(items[0].Name, "time");
-            Assert.Equal(items[0].Value, new DateTime(2018, 01, 01, 12, 32, 23, 345));
+            Assert.Equal("time", items[0].Name);
+            Assert.Equal(new DateTime(2018, 01, 01, 12, 32, 23, 345), items[0].Value);
 
-            Assert.Equal(items[1].Name, "level");
-            Assert.Equal(items[1].Value, "INFO");
+            Assert.Equal("level", items[1].Name);
+            Assert.Equal("INFO", items[1].Value);
 
-            Assert.Equal(items[2].Name, "message");
-            Assert.Equal(items[2].Value, "test message 1233tdsg");
+            Assert.Equal("message", items[2].Name);
+            Assert.Equal("test message 1233tdsg", items[2].Value);
         }
     }
 }
