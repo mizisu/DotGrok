@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>DotGrok</PackageId>
+    <Version>0.1</Version>
+    <Authors>mizisu</Authors>
   </PropertyGroup>
 
 </Project>
