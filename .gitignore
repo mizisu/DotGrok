@@ -28,5 +28,6 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 [Pp]roperties
+DotGrok.*.nupkg
 # Visual Studio 2015
 .vs/

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>DotGrok</id>
+        <title>DotGrok</title>
+        <version>0.2.2</version>
+        <authors>mizisu</authors>
+        <description>Parse text with pattern. Inspired by grok filter.</description>
+        <language>en-US</language>
+        <projectUrl>https://github.com/mizisu/DotGrok</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/mizisu/DotGrok/master/icon.png</iconUrl>
+        <licenseUrl>https://raw.githubusercontent.com/mizisu/DotGrok/master/LICENSE</licenseUrl>
+        <tags>grok text parser parsing-library parsing</tags>
+    </metadata>
+
+    <files>
+        <file src="README.md" target="README.md" />
+    </files>
+    
+</package>
