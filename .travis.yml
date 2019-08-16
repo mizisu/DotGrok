@@ -8,4 +8,4 @@ script:
  - dotnet restore
  - dotnet test DotGrok.Test/DotGrok.Test.csproj
  - dotnet pack -c=Release
- - nuget push DotGrok/bin/Release/DotGrok.*.nupkg -ApiKey $NUGET_API_KEY
+ - dotnet nuget push DotGrok/bin/Release/DotGrok.*.nupkg -k $NUGET_API_KEY
