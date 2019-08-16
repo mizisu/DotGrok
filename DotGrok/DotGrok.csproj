@@ -3,9 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>DotGrok</PackageId>
-    <Version>0.2</Version>
+    <Version>0.2.1</Version>
     <Authors>mizisu</Authors>
-    <PackageIcon>https://raw.githubusercontent.com/mizisu/DotGrok/master/icon.png</PackageIcon>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="./icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="./README.md" Pack="true" PackagePath=""/>
+  </ItemGroup>
 
 </Project>
