@@ -7,7 +7,7 @@
 
 ## Install
 Package Manager
-```console
+```
 Install-Package DotGrok
 ```
 .NET CLI

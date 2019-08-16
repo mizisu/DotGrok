@@ -5,7 +5,7 @@
     <PackageId>DotGrok</PackageId>
     <Version>0.1</Version>
     <Authors>mizisu</Authors>
-    <PackageIcon>icon.png</PackageIcon>
+    <PackageIcon>https://raw.githubusercontent.com/mizisu/DotGrok/master/icon.png</PackageIcon>
   </PropertyGroup>
 
 </Project>
