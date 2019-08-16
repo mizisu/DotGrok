@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>DotGrok</PackageId>
-    <Version>0.1</Version>
+    <Version>0.2</Version>
     <Authors>mizisu</Authors>
     <PackageIcon>https://raw.githubusercontent.com/mizisu/DotGrok/master/icon.png</PackageIcon>
   </PropertyGroup>
