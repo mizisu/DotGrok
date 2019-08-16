@@ -2,6 +2,8 @@
 
 .NET Parse text with pattern.
 
+![build](https://travis-ci.org/mizisu/DotGrok.svg?branch=master)
+
 ## Usage
 
 ```csharp

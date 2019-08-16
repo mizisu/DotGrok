@@ -2,6 +2,8 @@ language: csharp
 solution: DotGrok.sln
 mono: none
 dotnet: 2.1.502
+install:
+  - sudo apt-get install -y nuget
 script:
  - dotnet restore
  - dotnet test DotGrok.Test/DotGrok.Test.csproj
