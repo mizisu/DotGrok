@@ -5,6 +5,7 @@
     <PackageId>DotGrok</PackageId>
     <Version>0.1</Version>
     <Authors>mizisu</Authors>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
 </Project>
