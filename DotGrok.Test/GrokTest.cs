@@ -7,33 +7,50 @@ namespace DotGrok.Test
     using System.Linq;
     using Xunit;
     using Xunit.Abstractions;
+    using DotGrok;
 
     public class GrokTest
     {
         ITestOutputHelper output;
+
         public GrokTest(ITestOutputHelper output)
         {
             this.output = output;
         }
 
-        [Fact]
-        public void Test()
+        
+        /// <summary>
+        /// Get basic grok parsing result
+        ///
+        /// Return:
+        ///
+        /// time : DateTime(2018, 01, 01, 12, 32, 23, 345)
+        /// 
+        /// level : INFO
+        /// 
+        /// message : test message 1233tdsg
+        /// 
+        /// </summary>
+        public GrokResult GetBasicParsingResult()
         {
             var grok = DotGrok.Grok.NewBuilder(@"%{DateTime:time} %{LogLevel:level} %{Message:message}")
-                .AddPattern("DateTime", @"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}")
-                .AddPattern("LogLevel", @".\w+")
-                .AddPattern("Message", @".+")
-                .AddConverter("DateTime", s => DateTime.Parse(s))
-                .Build();
+               .AddPattern("DateTime", @"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}")
+               .AddPattern("LogLevel", @".\w+")
+               .AddPattern("Message", @".+")
+               .AddConverter("DateTime", s => DateTime.Parse(s))
+               .Build();
 
             var r = grok.Match("2018-01-01 12:32:23.345 INFO test message 1233tdsg");
 
-            var items = r.Items.ToList();
+            return r;
+        }
 
-            foreach (var item in r.Items)
-            {
-                output.WriteLine($"{item.Name} : {item.Value}");
-            }
+        [Fact]
+        public void BasicParsingTest()
+        {
+            var r = GetBasicParsingResult();
+
+            var items = r.Items.ToList();
 
             Assert.Equal("time", items[0].Name);
             Assert.Equal(new DateTime(2018, 01, 01, 12, 32, 23, 345), items[0].Value);
@@ -43,6 +60,24 @@ namespace DotGrok.Test
 
             Assert.Equal("message", items[2].Name);
             Assert.Equal("test message 1233tdsg", items[2].Value);
+        }
+
+        [Fact]
+        public void ToDictionaryTest()
+        {
+            var r = GetBasicParsingResult();
+            var dict = r.ToDictionary();
+            Assert.IsType<Dictionary<string, object>>(dict);
+            Assert.True(dict.Count > 0);
+        }
+
+        [Fact]
+        public void ToDynamicTest()
+        {
+            var r = GetBasicParsingResult();
+            dynamic obj = r.ToDynamic();
+
+            Assert.Equal("INFO", obj.level);
         }
     }
 }

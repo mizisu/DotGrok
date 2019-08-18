@@ -5,7 +5,7 @@
 ![build](https://travis-ci.org/mizisu/DotGrok.svg?branch=master)
 <a href="https://www.nuget.org/packages/DotGrok"><img src="https://img.shields.io/nuget/v/dotgrok.svg?style=flat"></a>
 
-## Install
+## Installation
 Package Manager
 ```
 Install-Package DotGrok
@@ -30,6 +30,13 @@ foreach (var item in r.Items)
 {
     System.Console.WriteLine($"{item.Name} : {item.Value}");
 }
+
+// To dictionary
+var dict = r.ToDictionary();
+
+// To dynamic type
+dynamic obj = r.ToDynamic();
+var level = obj.level; // get value
 ```
 
 ## Result
