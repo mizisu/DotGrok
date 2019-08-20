@@ -3,7 +3,7 @@
     <metadata>
         <id>DotGrok</id>
         <title>DotGrok</title>
-        <version>0.2.2</version>
+        <version>0.2.3</version>
         <authors>mizisu</authors>
         <description>Parse text with pattern. Inspired by grok filter.</description>
         <language>en-US</language>
