@@ -11,7 +11,7 @@
     {
         public class GrokBuilder
         {
-            private static readonly string GrokPatternRegex = @"%{(\w+):(\w+)}";
+            private static readonly Regex GrokPatternRegex = new Regex(@"%{(\w+):(\w+)}", RegexOptions.Compiled);
 
             internal static Dictionary<string, GrokPattern> GlobalPatterns = new Dictionary<string, GrokPattern>();
 
@@ -91,7 +91,7 @@
                     return $"(?<{semantic}>{pattern.Expression ?? ""})";
                 }
 
-                var regex = Regex.Replace(template, GrokPatternRegex, eval);
+                var regex = GrokPatternRegex.Replace(template, eval);
 
                 return new Regex(regex, this._regexOptions);
             }
