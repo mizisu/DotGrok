@@ -19,6 +19,7 @@
             private string _template;
             private Dictionary<string, GrokPattern> _patterns = new Dictionary<string, GrokPattern>();
             private Dictionary<string, Func<string, object>> _converters = new Dictionary<string, Func<string, object>>();
+            private RegexOptions _regexOptions = RegexOptions.None;
 
             public GrokBuilder() { }
 
@@ -59,10 +60,18 @@
                 return this;
             }
 
+            public GrokBuilder SetRegexOptions(RegexOptions options) {
+                this._regexOptions = options;
+                return this;
+            }
+
             public Grok Build()
             {
                 this._grok.GrokRegex = this.TemplateToRegex(this._template);
-                this._grok.SemanticNames = this._grok.GrokRegex.GetGroupNames().Skip(1).ToList();
+                this._grok.SemanticNames = this._grok.GrokRegex
+                                    .GetGroupNames()
+                                    .Skip(1)
+                                    .ToList();
 
                 return this._grok;
             }
@@ -84,7 +93,7 @@
 
                 var regex = Regex.Replace(template, GrokPatternRegex, eval);
 
-                return new Regex(regex);
+                return new Regex(regex, this._regexOptions);
             }
 
             private GrokPattern GetPattern(string name)

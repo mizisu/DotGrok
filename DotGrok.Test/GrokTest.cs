@@ -8,6 +8,7 @@ namespace DotGrok.Test
     using Xunit;
     using Xunit.Abstractions;
     using DotGrok;
+    using System.Text.RegularExpressions;
 
     public class GrokTest
     {
@@ -38,6 +39,7 @@ namespace DotGrok.Test
                .AddPattern("LogLevel", @".\w+")
                .AddPattern("Message", @".+")
                .AddConverter("DateTime", s => DateTime.Parse(s))
+               .SetRegexOptions(RegexOptions.Compiled | RegexOptions.IgnoreCase)
                .Build();
 
             var r = grok.Match("2018-01-01 12:32:23.345 INFO test message 1233tdsg");
