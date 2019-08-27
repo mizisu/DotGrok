@@ -1,3 +1,4 @@
+if: commit_message =~ ^change version \d+.\d+.\d+
 language: csharp
 solution: DotGrok.sln
 mono: none
