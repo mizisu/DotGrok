@@ -32,8 +32,8 @@ namespace DotGrok.Test
             foreach (var line in File.ReadLines("./sample_apache_access_log.txt").Take(10))
             {
                 var result = grok.Match(line);
-                this.output.WriteLine(result.Success.ToString());
-                var text = string.Join(' ', result.Items.Select(item => item.ToString()));
+                Assert.Equal(true, result.Success);
+                var text = string.Join(", ", result.Items.Select(item => $"{item.Name}:{item.Value}"));
                 this.output.WriteLine(text);
             }
         }
