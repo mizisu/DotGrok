@@ -17,4 +17,10 @@
     <ProjectReference Include="..\DotGrok\DotGrok.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="sample_apache_access_log.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
