@@ -19,7 +19,6 @@ namespace DotGrok.Test
             this.output = output;
         }
 
-        
         /// <summary>
         /// Get basic grok parsing result
         ///
