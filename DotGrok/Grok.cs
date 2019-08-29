@@ -12,6 +12,11 @@
             return new GrokBuilder(template);
         }
 
+        public static Grok FromObject(object obj)
+        {
+            return null;
+        }
+
         internal Regex GrokRegex { get; set; }
         internal List<string> SemanticNames { get; set; }
         internal Dictionary<string, Func<string, object>> ValueConverters { get; set; } = new Dictionary<string, Func<string, object>>();
