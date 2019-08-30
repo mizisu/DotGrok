@@ -4,6 +4,7 @@
 
 ![build](https://travis-ci.org/mizisu/DotGrok.svg?branch=master)
 <a href="https://www.nuget.org/packages/DotGrok"><img src="https://img.shields.io/nuget/v/dotgrok.svg?style=flat"></a>
+<img src="https://img.shields.io/nuget/dt/dotgrok">
 
 ## Installation
 
