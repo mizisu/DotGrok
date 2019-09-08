@@ -12,9 +12,9 @@
             return new GrokBuilder(template);
         }
 
-        public static Grok FromObject(object obj)
+        private static Grok FromObject(object obj)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         internal Regex GrokRegex { get; set; }
