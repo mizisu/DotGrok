@@ -5,19 +5,24 @@ namespace DotGrok.Test
     using Xunit;
     using Xunit.Abstractions;
 
-    public class FromObjectTest
+    class GrokInfo
+    {
+
+    }
+
+    public class FromTypeTest
     {
         ITestOutputHelper output;
 
-        public FromObjectTest(ITestOutputHelper output)
+        public FromTypeTest(ITestOutputHelper output)
         {
             this.output = output;
         }
 
         [Fact]
-        public void GrokFromObject()
+        public void GrokFromType()
         {
-
+            var grok = Grok.FromType<GrokInfo>();
         }
     }
 }

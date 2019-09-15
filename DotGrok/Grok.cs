@@ -12,7 +12,7 @@
             return new GrokBuilder(template);
         }
 
-        private static Grok FromObject(object obj)
+        public static Grok FromType<T>()
         {
             throw new NotImplementedException();
         }
