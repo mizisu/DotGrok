@@ -21,17 +21,42 @@ dotnet add package DotGrok
 ```
 
 ## Usage
-
+### Example 1
 ```csharp
-// Read apache access log
+// Setting extract format "%{PatternName:ExtractName}"
+var grok = DotGrok.Grok.NewBuilder("%{Method:Method} %{HttpVersion:Version} %{StatusCode:StatusCode}")
+    .AddPattern("Method", @"\w{3,4}")
+    .AddPattern("HttpVersion", @"HTTP\/\d+.\d+")
+    .AddPattern("StatusCode", @"\d{3}")
+    .Build();
+
+var sampleData = [
+    "GET HTTP/1.1 200",
+    "GET HTTP/1.1 404"
+    "POST HTTP/1.1 200"
+];
+
+foreach(var line in sampleData)
+{
+    var result = grok.Match(line);
+    foreach(var item in result.Items)
+    {
+        System.Console.WriteLine($"{item.Name} : {item.Value}");
+    }
+}
+```
+
+### Example 2
+```csharp
+// Read apache access log format like below
 // 64.242.88.10 - - [07/Mar/2004:16:10:02 -0800] "GET /mailman/listinfo/hsdivision HTTP/1.1" 200
 var grok = DotGrok.Grok.NewBuilder(
-    "%{ClientId:ClientId} - - \\[%{Text:Date}\\] \"%{Method:Method} %{Text:Url} %{HttpVersion:HttpVersion}\" %{StateCode:StateCode}")
+    "%{ClientId:ClientId} - - \\[%{Text:Date}\\] \"%{Method:Method} %{Text:Url} %{HttpVersion:HttpVersion}\" %{StatusCode:StatusCode}")
     .AddPattern("ClientId", @"\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}|.+")
     .AddPattern("Text", @".+")
     .AddPattern("Method", @"\w{3,4}")
     .AddPattern("HttpVersion", @"HTTP\/\d+.\d+")
-    .AddPattern("StateCode", @"\d{3}")
+    .AddPattern("StatusCode", @"\d{3}")
     .Build();
 
 foreach (var line in File.ReadLines("./sample_apache_access_log.txt").Take(10))
@@ -42,7 +67,7 @@ foreach (var line in File.ReadLines("./sample_apache_access_log.txt").Take(10))
     System.Console.WriteLine();
 }
 ```
-## Result
+### Result
 
 ```
 ClientId:64.242.88.10, Date:07/Mar/2004:17:17:27 -0800, Method:GET, Url:/twiki/bin/search/TWiki/?scope=topic&regex=on&search=^d, HttpVersion:HTTP/1.1, StateCode:200
