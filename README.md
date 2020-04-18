@@ -21,7 +21,9 @@ dotnet add package DotGrok
 ```
 
 ## Usage
+
 ### Example 1
+
 ```csharp
 // Setting extract format "%{PatternName:ExtractName}"
 var grok = DotGrok.Grok.NewBuilder("%{Method:Method} %{HttpVersion:Version} %{StatusCode:StatusCode}")
@@ -47,6 +49,22 @@ foreach(var line in sampleData)
 ```
 
 ### Example 2
+
+```csharp
+var grok = DotGrok.Grok.NewBuilder("%{DateTime:Date}")
+    .AddPattern("DateTime", @"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}")
+    .AddConverter(s => DateTime.parse())
+    .Build();
+
+var r = grok.Match("2018-01-01 12:32:23.345 INFO test message 1233tdsg");
+
+var items = r.Items.ToList();
+
+Assert.Equal(new DateTime(2018, 01, 01, 12, 32, 23, 345), items[0].Value);
+```
+
+### Example 3
+
 ```csharp
 // Read apache access log format like below
 // 64.242.88.10 - - [07/Mar/2004:16:10:02 -0800] "GET /mailman/listinfo/hsdivision HTTP/1.1" 200
@@ -67,6 +85,7 @@ foreach (var line in File.ReadLines("./sample_apache_access_log.txt").Take(10))
     System.Console.WriteLine();
 }
 ```
+
 ### Result
 
 ```
