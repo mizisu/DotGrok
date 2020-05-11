@@ -85,16 +85,3 @@ foreach (var line in File.ReadLines("./sample_apache_access_log.txt").Take(10))
     System.Console.WriteLine();
 }
 ```
-
-### Result
-
-```
-ClientId:64.242.88.10, Date:07/Mar/2004:17:17:27 -0800, Method:GET, Url:/twiki/bin/search/TWiki/?scope=topic&regex=on&search=^d, HttpVersion:HTTP/1.1, StateCode:200
-
-ClientId:lj1036.inktomisearch.com, Date:07/Mar/2004:17:18:36 -0800, Method:GET, Url:/robots.txt, HttpVersion:HTTP/1.0, StateCode:200
-
-ClientId:lj1090.inktomisearch.com, Date:07/Mar/2004:17:18:41 -0800, Method:GET, Url:/twiki/bin/view/Main/LondonOffice, HttpVersion:HTTP/1.0, StateCode:200
-
-ClientId:64.242.88.10, Date:07/Mar/2004:17:21:44 -0800, Method:GET, Url:/twiki/bin/attach/TWiki/TablePlugin, HttpVersion:HTTP/1.1, StateCode:401
-...
-```
